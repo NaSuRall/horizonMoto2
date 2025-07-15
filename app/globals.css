@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@layer utilities {
+  @keyframes shrink {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: #ffe80b;
+    }
+  }
+
+  @keyframes ktm {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: orange;
+    }
+  }
+
+  @keyframes funkyPop {
+    0% {
+      transform: scale(1) rotate(0deg);
+      background-color: #ffffff;
+      color: black;
+    }
+    25% {
+      transform: scale(1.05) rotate(3deg);
+      background-color: #ffe100;
+      color: #1a1a1a;
+    }
+    50% {
+      transform: scale(1.1) rotate(-3deg);
+      background-color: #ff8c00;
+      color: white;
+    }
+    75% {
+      transform: scale(1.05) rotate(2deg);
+      background-color: #ffe100;
+      color: #1a1a1a;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      background-color: #ffffff;
+      color: black;
+    }
+  }
+
+  .animate-funky-pop {
+    animation: funkyPop 3s ease-in-out infinite;
+  }
+
+  .animate-ktm{
+    animation: ktm 3s ease-in-out infinite;
+  }
+
+  .animate-shrink {
+    animation: shrink 1s ease-in-out forwards;
+  }
+}
