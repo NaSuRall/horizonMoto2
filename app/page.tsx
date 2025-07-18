@@ -3,6 +3,8 @@ import Carousel from "./components/carousel";
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Footer from "./components/footer";
+import ChoixSection from "./components/ChoixSection";
+import VespaCard from "./components/VespaCard";
 
 export default function Home() {
   const slides = [
@@ -66,6 +68,13 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center h-screen border-2 p-2">
         <h1 className="text-4xl font-bold text-black">Header</h1>
+      </div>
+
+      <div className="w-full h-screen">
+        <VespaCard />
+      </div>
+      <div className="w-full h-[900px] flex ">
+        <ChoixSection />
       </div>
 
       <div className="flex flex-col h-[600px] w-full ">

@@ -73,6 +73,18 @@ body {
     }
   }
 
+  @keyframes haloPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
   .animate-funky-pop {
     animation: funkyPop 3s ease-in-out infinite;
   }
@@ -89,5 +101,9 @@ body {
   }
   .bg-main {
     background-color: var(--background-main);
+  }
+
+  .animate-haloPulse {
+    animation: haloPulse 2s infinite ease-in-out;
   }
 }
