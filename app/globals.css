@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --background-footer: #1c1c1c;
+  --background-main: #0f0f0f;
 }
 
 @theme inline {
@@ -75,11 +77,17 @@ body {
     animation: funkyPop 3s ease-in-out infinite;
   }
 
-  .animate-ktm{
+  .animate-ktm {
     animation: ktm 3s ease-in-out infinite;
   }
 
   .animate-shrink {
     animation: shrink 1s ease-in-out forwards;
+  }
+  .bg-footer {
+    background-color: var(--background-footer);
+  }
+  .bg-main {
+    background-color: var(--background-main);
   }
 }
