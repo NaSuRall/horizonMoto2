@@ -70,7 +70,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-black">Header</h1>
       </div>
 
-      <div className="w-full h-screen">
+      <div className="w-full p-25 h-screen">
         <VespaCard />
       </div>
       <div className="w-full h-[900px] flex ">

@@ -8,7 +8,7 @@ export default function Home() {
         <Sidebar />
       </div>
       <div className="flex flex-col h-screen rounded-2xl m-6">
-        <video autoPlay muted loop className="flex flex-col rounded-2xl">
+        <video autoPlay muted loop className="flex flex-col h-full rounded-2xl">
           <source src="/videos/videos.mp4" type="video/mp4" />
           Ton navigateur ne supporte pas la vidéo.
         </video>
