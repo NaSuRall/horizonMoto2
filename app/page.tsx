@@ -5,6 +5,8 @@ import Nav from "./components/Nav";
 import Footer from "./components/footer";
 import ChoixSection from "./components/ChoixSection";
 import VespaCard from "./components/VespaCard";
+import WhereToFind from "./components/WhereToFind";
+import LogoCarousel from "./components/LogoCarousel";
 
 export default function Home() {
   const slides = [
@@ -12,13 +14,6 @@ export default function Home() {
       key="slide-1"
       className="animate-shrink p-5 flex w-full h-full items-center justify-center text-2xl font-bold"
     >
-      {/*  <Image
-              src="/img/maxess.png"
-              width={800}
-              height={800}
-              alt="Picture of the author"
-          />
-          */}
       <h2 className="text-9xl text-black">MAXXESS</h2>
     </div>,
     <div
@@ -29,57 +24,120 @@ export default function Home() {
     </div>,
     <div
       key="slide-3"
-      className="h-full p-5 overflow-hidden  bg-red-600 flex items-center justify-center text-white text-2xl font-bold"
+      className="h-full p-5 overflow-hidden bg-red-600 flex items-center justify-center text-white text-2xl font-bold"
     >
       <h2 className="text-9xl text-black">HONDA</h2>
     </div>,
     <div
       key="slide-4"
-      className="h-full p-5 overflow-hidden  bg-blue-500 flex items-center justify-center text-white text-2xl font-bold"
+      className="h-full p-5 overflow-hidden bg-blue-500 flex items-center justify-center text-white text-2xl font-bold"
     >
       <h2 className="text-9xl text-black">SUZUKI</h2>
     </div>,
     <div
       key="slide-5"
-      className="h-full p-5 overflow-hidden  bg-black items-center justify-center text-white text-2xl font-bold"
+      className="h-full p-5 overflow-hidden bg-black flex items-center justify-center text-white text-2xl font-bold"
     >
       <h2 className="text-9xl text-black">MOTOPLEX</h2>
     </div>,
     <div
       key="slide-6"
-      className="h-full p-5 overflow-hidden  bg-green-500 flex items-center justify-center text-white text-2xl font-bold"
+      className="h-full p-5 overflow-hidden bg-green-500 flex items-center justify-center text-white text-2xl font-bold"
     >
       <h2 className="text-9xl text-black">Kawasaki</h2>
     </div>,
   ];
 
+  const logos = [
+    <Image
+      key="logo-1"
+      src="/img/Honda_Logo.svg"
+      alt="Logo Honda"
+      width={90}
+      height={40}
+    />,
+    <Image
+      key="logo-2"
+      src="/img/KTMFIGMA.png"
+      alt="Logo KTM"
+      width={90}
+      height={40}
+    />,
+    <Image
+      key="logo-3"
+      src="/img/maxess.png"
+      alt="Logo Maxxess"
+      width={200}
+      height={40}
+    />,
+    <Image
+      key="logo-4"
+      src="/img/suzuki-12.svg"
+      alt="Logo Suzuki"
+      width={200}
+      height={40}
+    />,
+  ];
+
   return (
     <div className="flex flex-col w-full h-full bg-main">
-      {/* <div className="z-3">
-        <Sidebar />
-      </div>
-
-      <div className="flex flex-col items-center justify-center w-full h-full">
-        <Carousel slides={slides} interval={3000} />
-      </div> */}
-      <div className="flex flex-row w-full h-full">
+      {/* Navbar */}
+      <header className="w-full sticky top-0 z-50">
         <Nav />
-      </div>
+      </header>
 
-      <div className="flex flex-col items-center justify-center h-screen border-2 p-2">
-        <h1 className="text-4xl font-bold text-black">Header</h1>
-      </div>
+      {/* Hero Section */}
+      <section className="relative flex flex-col justify-center items-start h-screen p-4 md:p-8 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-50 z-0"
+        >
+          <source src="/videos/videos.mp4" type="video/mp4" />
+          Ton navigateur ne supporte pas la vidéo.
+        </video>
 
-      <div className="w-full p-25 h-screen">
-        <VespaCard />
-      </div>
-      <div className="w-full h-[900px] flex ">
+        <div className="relative z-10 max-w-full md:w-1/2 px-4 md:px-20 flex flex-col gap-6">
+          <h1 className="font-bold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl max-w-4xl leading-tight">
+            Horizon Moto
+          </h1>
+          <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl leading-relaxed">
+            Bienvenue chez votre concessionnaire et spécialiste moto situé à
+            Saint-Ouen-l’Aumône, au cœur du Val-d’Oise (95). Que vous soyez
+            passionné de deux-roues, amateur de sensations fortes ou simple
+            curieux, notre équipe vous accueille dans un espace entièrement
+            dédié à l’univers de la moto.
+          </p>
+          <button className="mt-8 px-6 py-3 w-50 bg-red-500 text-white text-base sm:text-lg rounded hover:bg-red-600 transition">
+            En savoir plus
+          </button>
+        </div>
+      </section>
+
+      {/* Choix Section */}
+      <section className="w-full h-full flex items-center justify-center px-4 md:px-20">
         <ChoixSection />
-      </div>
+      </section>
+      {/* Logo Carousel */}
+      <section className="w-full py-12 flex justify-center">
+        <LogoCarousel logos={logos} speed={15} />
+      </section>
+      {/* Vespa Card */}
+      <section className="w-full h-screen flex items-center justify-center px-4 md:px-20">
+        <VespaCard />
+      </section>
 
-      <div className="flex flex-col h-[600px] w-full ">
+      {/* Where To Find */}
+      <section className="w-full flex items-center justify-center px-4 md:px-20 py-20">
+        <WhereToFind />
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full ">
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 }

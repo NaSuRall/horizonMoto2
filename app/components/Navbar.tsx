@@ -1,28 +1,21 @@
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-row w-full h-full ">
-      <ul className="flex flex-row w-full items-center justify-around overflow-hidden">
-        <li
-          className=" w-full flex items-center justify-center border-r-2 border h-full
-                hover:-translate-y-1 hover:-translate-x-1 hover:bg-red-500 transition duration-200"
-        >
+    <nav className="flex  items-center justify-center p-10">
+      <ul className="flex items-center">
+        <li>
           <Link
             href="/"
-            className="flex w-full h-full items-center justify-center text-1xl"
+            className="group flex items-center gap-2 px-8 py-3 bg-white rounded-2xl text-lg font-medium shadow-md transform transition-all duration-300 hover:scale-105"
           >
-            Accueil
+            {/* Texte */}
+            <span className="transition-all duration-300">Accès au Site</span>
+
+            {/* Flèche */}
+            <ArrowRight className="transform transition-transform duration-300 group-hover:translate-x-2" />
           </Link>
-        </li>
-        <li className=" w-full flex items-center justify-center border-r-2 border h-full hover:-translate-y-1 hover:-translate-x-1 hover:bg-red-500 transition duration-200">
-          Produit
-        </li>
-        <li className=" w-full flex items-center justify-center border-r-2 border h-full hover:-translate-y-1 hover:-translate-x-1 hover:bg-red-500 transition duration-200">
-          Destockage
-        </li>
-        <li className=" w-full flex items-center justify-center h-full hover:-translate-y-1 hover:-translate-x-1 hover:bg-red-500 transition duration-200">
-          Contact
         </li>
       </ul>
     </nav>

@@ -1,93 +1,104 @@
 "use client";
 
-import React from "react";
-import { ChevronRight } from "lucide-react";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function ChoixSection() {
+  const leftControls = useAnimation();
+  const rightControls = useAnimation();
+
+  const [leftRef, leftInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const [rightRef, rightInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    if (leftInView) leftControls.start("visible");
+    if (rightInView) rightControls.start("visible");
+  }, [leftInView, rightInView, leftControls, rightControls]);
+
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
+    },
+  };
+
   return (
-    <section className="flex  text-white p-30 gap-16 w-full ">
-      {/* Partie gauche */}
-      <div className="flex flex-col gap-8 flex-1 max-w-xl">
-        {/* Titre */}
-        <h2 className="text-4xl font-mono leading-snug">
-          Choisissez ce qui <br /> vous convient !
-        </h2>
+    <section className="w-full h-full text-white px-4 md:px-12 lg:px-32 py-12">
+      <div className="w-full max-w-screen-xl h-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        {/* LEFT SIDE */}
+        <motion.div
+          ref={leftRef}
+          initial="hidden"
+          animate={leftControls}
+          variants={fadeLeft}
+          className="flex-1 flex flex-col gap-8 text-center lg:text-left"
+        >
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-snug">
+            Choisissez ce qui <br /> vous convient !
+          </h2>
 
-        {/* Paragraphe */}
-        <p className="text-sm text-gray-400 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et consectetur adipiscing elit,
-          sed dolore magna aliqua.
-        </p>
+          <p className="text-base text-gray-400 leading-relaxed">
+            Nous proposons un large choix de motos neuves et d’occasion de
+            grandes marques telles que KTM, Honda, Kawasaki, Suzuki, et bien
+            d'autres. Que ce soit pour l'achat, l'entretien ou l'équipement du
+            pilote, Horizon Moto vous accompagne avec expertise et passion.
+          </p>
 
-        {/* Les 3 carrés gris */}
-        <div className="flex gap-6">
-          <div className="w-[150] h-[200] flex justify-center items-center ">
+          <div className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-start items-center gap-4 mt-4">
+            {["img1.png", "img2.png", "img3.png"].map((img, i) => (
+              <div
+                key={i}
+                className="w-[140px] md:w-[160px] lg:w-[180px] xl:w-[200px] h-auto flex justify-center items-center"
+              >
+                <Image
+                  src={`/img/${img}`}
+                  alt={`Image ${i + 1}`}
+                  width={200}
+                  height={210}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* RIGHT SIDE */}
+        <motion.div
+          ref={rightRef}
+          initial="hidden"
+          animate={rightControls}
+          variants={fadeRight}
+          className="flex-1 flex justify-center items-center"
+        >
+          <div className="w-full max-w-[500px]">
             <Image
-              src="/img/img1.png"
-              alt="Horizon Moto Logo"
-              width={280}
-              height={40}
-              className="w-full max-h-full object-contain"
+              src="/img/img4.jpg"
+              alt="Horizon Moto"
+              width={900}
+              height={700}
+              className="w-full h-auto object-cover rounded shadow-lg"
             />
           </div>
-          <div className="w-[150] h-[200] flex justify-center items-center ">
-            <Image
-              src="/img/img2.png"
-              alt="Horizon Moto Logo"
-              width={280}
-              height={40}
-              className="w-full max-h-full object-contain"
-            />
-          </div>
-          <div className="w-[150] h-[200] flex justify-center items-center ">
-            <Image
-              src="/img/img3.png"
-              alt="Horizon Moto Logo"
-              width={280}
-              height={40}
-              className="w-full max-h-full object-contain"
-            />
-          </div>
-        </div>
-
-        {/* Texte encadré rouge */}
-        <div className="border border-red-500 text-red-500 px-4 py-2 max-w-[350px]">
-          Le Casque Parfait Pour Vos Sortie En Été !
-        </div>
-
-        {/* Ligne avec bouton et flèches */}
-        <div className="flex items-center gap-6">
-          <button
-            type="button"
-            className="bg-red-500 hover:bg-red-600 transition flex items-center gap-2 px-4 py-2 text-xs uppercase font-semibold tracking-wide rounded"
-          >
-            LIRE PLUS
-            <ChevronRight />
-          </button>
-
-          {/* Flèches navigation */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-white text-2xl cursor-pointer select-none">
-              «
-            </span>
-            <span className="text-red-500 text-4xl cursor-pointer select-none">
-              »
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Partie droite grande zone grise */}
-      <div className="flex-1 flex justify-center items-center ">
-        <Image
-          src="/img/img4.jpg"
-          alt="Horizon Moto Logo"
-          width={880}
-          height={800}
-          className="w-full max-h-full object-contain"
-        />
+        </motion.div>
       </div>
     </section>
   );

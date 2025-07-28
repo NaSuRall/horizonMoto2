@@ -85,6 +85,31 @@ body {
     }
   }
 
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee linear infinite;
+  }
+  .group:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+  .animate-scroll {
+    animation: scroll linear infinite;
+  }
   .animate-funky-pop {
     animation: funkyPop 3s ease-in-out infinite;
   }
