@@ -10,14 +10,14 @@ export default function Home() {
   const logos = [
     <Image
       key="logo-1"
-      src="/img/Honda_Logo.svg"
+      src="/img/honda.svg"
       alt="Logo Honda"
       width={90}
       height={40}
     />,
     <Image
       key="logo-2"
-      src="/img/KTMFIGMA.png"
+      src="/img/ktm.png"
       alt="Logo KTM"
       width={90}
       height={40}
@@ -31,7 +31,7 @@ export default function Home() {
     />,
     <Image
       key="logo-4"
-      src="/img/suzuki-12.svg"
+      src="/img/suzuki.svg"
       alt="Logo Suzuki"
       width={200}
       height={40}
