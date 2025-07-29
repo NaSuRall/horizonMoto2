@@ -13,32 +13,51 @@ export default function Sidebar() {
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-black fixed top-0 left-0 w-full z-50 shadow-md"
+      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[90%] md:w-[80%] px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-lg rounded-full shadow-xl"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between p-4 md:p-6">
+      <div className="flex items-center justify-between flex-wrap gap-3 sm:gap-6 md:gap-10">
         {/* Logo */}
         <div className="flex-shrink-0">
           <Image
             src="/img/logo.png"
             alt="Horizon Moto Logo"
-            width={160}
-            height={60}
+            width={120}
+            height={50}
             className="object-contain"
           />
         </div>
 
-        {/* Hamburger button (mobile) */}
+        {/* Menu links (desktop) */}
+        <div className="hidden md:flex items-center space-x-8 lg:space-x-10 text-white font-medium text-sm md:text-base">
+          {["Accueil", "Présentation", "Nos Actualités", "Contact"].map(
+            (text, index) => (
+              <Link
+                key={index}
+                href="/"
+                className="hover:text-red-500 transition"
+              >
+                {text}
+              </Link>
+            )
+          )}
+        </div>
+
+        {/* Phone number (desktop) */}
+        <div className="hidden md:flex text-white text-sm md:text-base font-semibold">
+          06 40 53 58 27
+        </div>
+
+        {/* Hamburger (mobile) */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
           <svg
-            className="w-8 h-8"
+            className="w-7 h-7 sm:w-8 sm:h-8"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
           >
             {isOpen ? (
               <path
@@ -57,39 +76,19 @@ export default function Sidebar() {
             )}
           </svg>
         </button>
-
-        {/* Menu links (desktop) */}
-        <div className="hidden md:flex items-center space-x-10 text-white text-lg">
-          {["Accueil", "Présentation", "Nos Actualités", "Contact"].map(
-            (text, index) => (
-              <Link
-                key={index}
-                href="/"
-                className="hover:text-red-500 transition"
-              >
-                {text}
-              </Link>
-            )
-          )}
-        </div>
-
-        {/* Phone number (desktop) */}
-        <div className="hidden md:flex text-white text-lg font-medium">
-          06 40 53 58 27
-        </div>
       </div>
 
-      {/* Mobile menu (slide down) */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="bg-black overflow-hidden md:hidden"
+            transition={{ duration: 0.3 }}
+            className="  mt-2 overflow-hidden md:hidden"
           >
-            <div className="flex flex-col px-6 py-4 space-y-4 text-white text-lg">
+            <div className="flex flex-col px-6 py-4 space-y-4 text-white text-base">
               {["Accueil", "Présentation", "Nos Actualités", "Contact"].map(
                 (text, index) => (
                   <Link

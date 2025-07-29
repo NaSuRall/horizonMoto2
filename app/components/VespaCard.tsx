@@ -34,14 +34,11 @@ export default function VespaCard() {
       <div className="border border-red-600 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 items-center p-4 sm:p-6 rounded-lg">
         {/* Left Section */}
         <div className="p-4 sm:p-6 flex flex-col items-center md:items-start justify-center gap-4 col-span-1 text-left">
-          <p className="text-xs uppercase text-gray-300 text-center md:text-left">
-            Découvrez notre sélection d&#39;équipements et accessoires de moto !
-          </p>
-
+          <p className="text-2xl md:text-3xl font-semibold">Horizon Moto</p>
           <div className="text-center md:text-left">
-            <p className="text-2xl md:text-3xl font-semibold">Horizon Moto</p>
-            <p className="text-xs text-gray-500 mt-1">
-              Equipement de Moto et Accessoires
+            <p className="text-xs uppercase text-gray-300 text-center md:text-left">
+              Découvrez notre sélection d&#39;équipements et accessoires de moto
+              !
             </p>
           </div>
         </div>
