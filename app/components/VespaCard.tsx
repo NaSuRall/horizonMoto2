@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Star, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -16,21 +16,11 @@ export default function VespaCard() {
     }
   }, [inView, controls]);
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.2, ease: "easeInOut", delay: 0.2 },
-    },
-  };
-
   return (
     <motion.section
       ref={ref}
       initial="hidden"
       animate={controls}
-      variants={fadeUp}
       className="text-white py-12 flex flex-col items-center justify-center w-full  text-center"
     >
       <h2 className="text-4xl sm:text-3xl md:text-5xl font-semibold mb-4 leading-tight">
@@ -45,7 +35,7 @@ export default function VespaCard() {
         {/* Left Section */}
         <div className="p-4 sm:p-6 flex flex-col items-center md:items-start justify-center gap-4 col-span-1 text-left">
           <p className="text-xs uppercase text-gray-300 text-center md:text-left">
-            Découvrez notre sélection d'équipements et accessoires de moto !
+            Découvrez notre sélection d&#39;équipements et accessoires de moto !
           </p>
 
           <div className="text-center md:text-left">

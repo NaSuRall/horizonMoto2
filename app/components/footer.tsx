@@ -22,10 +22,11 @@ export default function Footer() {
             <h2 className="text-2xl mb-4">Nous Trouver !</h2>
             <div className="flex flex-col gap-1 text-sm text-white/70">
               <p className="flex w-50">
-                11 Rue d'Épluches", "95310 Saint-Ouen-l’Aumône
+                11 Rue d&#39;Épluches&quot;, &quot;95310 Saint-Ouen-l’Aumône
               </p>
               <p className="flex w-50 pt-2">
-                Ligne H - arrêt Épluches", "5 min à pied depuis la gare
+                Ligne H - arrêt Épluches&quot;, &quot;5 min à pied depuis la
+                gare
               </p>
             </div>
           </div>

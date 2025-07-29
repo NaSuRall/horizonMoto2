@@ -19,7 +19,7 @@ export default function Sidebar() {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Image
-            src="/logo.png"
+            src="/img/logo.png"
             alt="Horizon Moto Logo"
             width={160}
             height={60}

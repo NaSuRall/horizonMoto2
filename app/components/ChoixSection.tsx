@@ -23,24 +23,6 @@ export default function ChoixSection() {
     if (rightInView) rightControls.start("visible");
   }, [leftInView, rightInView, leftControls, rightControls]);
 
-  const fadeLeft = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
-  const fadeRight = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
-    },
-  };
-
   return (
     <section className="w-full h-full text-white px-4 md:px-12 lg:px-32 py-12">
       <div className="w-full max-w-screen-xl h-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
@@ -49,7 +31,6 @@ export default function ChoixSection() {
           ref={leftRef}
           initial="hidden"
           animate={leftControls}
-          variants={fadeLeft}
           className="flex-1 flex flex-col gap-8 text-center lg:text-left"
         >
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-snug">
@@ -59,8 +40,9 @@ export default function ChoixSection() {
           <p className="text-base text-gray-400 leading-relaxed">
             Nous proposons un large choix de motos neuves et d’occasion de
             grandes marques telles que KTM, Honda, Kawasaki, Suzuki, et bien
-            d'autres. Que ce soit pour l'achat, l'entretien ou l'équipement du
-            pilote, Horizon Moto vous accompagne avec expertise et passion.
+            d&#39;autres. Que ce soit pour l&#39;achat, l&#39;entretien ou
+            l&#39;équipement du pilote, Horizon Moto vous accompagne avec
+            expertise et passion.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-start items-center gap-4 mt-4">
@@ -86,7 +68,6 @@ export default function ChoixSection() {
           ref={rightRef}
           initial="hidden"
           animate={rightControls}
-          variants={fadeRight}
           className="flex-1 flex justify-center items-center"
         >
           <div className="w-full max-w-[500px]">
