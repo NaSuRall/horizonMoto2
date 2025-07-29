@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Nav from "./components/Nav";
 import Footer from "./components/footer";
 import ChoixSection from "./components/ChoixSection";
@@ -8,34 +7,10 @@ import LogoCarousel from "./components/LogoCarousel";
 
 export default function Home() {
   const logos = [
-    <Image
-      key="logo-1"
-      src="/img/honda.svg"
-      alt="Logo Honda"
-      width={90}
-      height={40}
-    />,
-    <Image
-      key="logo-2"
-      src="/img/ktm.png"
-      alt="Logo KTM"
-      width={90}
-      height={40}
-    />,
-    <Image
-      key="logo-3"
-      src="/img/maxess.png"
-      alt="Logo Maxxess"
-      width={200}
-      height={40}
-    />,
-    <Image
-      key="logo-4"
-      src="/img/suzuki.svg"
-      alt="Logo Suzuki"
-      width={200}
-      height={40}
-    />,
+    "/img/honda.svg",
+    "/img/ktm.png",
+    "/img/maxess.png",
+    "/img/suzuki.svg",
   ];
 
   return (

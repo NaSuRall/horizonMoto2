@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -51,12 +50,12 @@ export default function ChoixSection() {
                 key={i}
                 className="w-[140px] md:w-[160px] lg:w-[180px] xl:w-[200px] h-auto flex justify-center items-center"
               >
-                <Image
+                <img
                   src={`/img/${img}`}
                   alt={`Image ${i + 1}`}
                   width={200}
                   height={210}
-                  className="object-contain"
+                  className="object-contain rounded-2xl"
                 />
               </div>
             ))}
@@ -71,7 +70,7 @@ export default function ChoixSection() {
           className="flex-1 flex justify-center items-center"
         >
           <div className="w-full max-w-[500px]">
-            <Image
+            <img
               src="/img/img4.jpg"
               alt="Horizon Moto"
               width={900}

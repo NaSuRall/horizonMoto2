@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -13,17 +12,18 @@ export default function Sidebar() {
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[90%] md:w-[80%] px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-lg rounded-full shadow-xl"
+      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[90%] md:w-[80%] px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-lg rounded-2xl shadow-xl"
     >
       <div className="flex items-center justify-between flex-wrap gap-3 sm:gap-6 md:gap-10">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Image
-            src="/img/logo.png"
-            alt="Horizon Moto Logo"
+          <img
+            src={"/img/logo.png"}
+            alt={`Horizon Moto Logo`}
             width={120}
-            height={50}
+            height={40}
             className="object-contain"
+            loading="lazy"
           />
         </div>
 

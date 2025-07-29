@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import { Star, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -45,11 +44,11 @@ export default function VespaCard() {
 
         {/* Center Image Section */}
         <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] md:col-span-3 flex items-center justify-center">
-          <Image
-            src="/img/hgorizon.png"
+          <img
+            src="/img/horizon.png"
             alt="Horizon Moto Logo"
-            layout="fill"
-            objectFit="contain"
+            className="object-contain"
+            loading="lazy"
           />
         </div>
 

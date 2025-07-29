@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, House } from "lucide-react";
 
@@ -8,11 +7,13 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row w-full justify-around items-start z-10 gap-10 md:gap-0">
         {/* Logo */}
         <div className="flex-shrink-0 mx-auto md:mx-0">
-          <Image
-            src="/logo.png"
-            alt="Horizon Moto Logo"
-            width={280}
-            height={100}
+          <img
+            src={"/img/logo.png"}
+            alt={`Horizon Moto Logo`}
+            width={120}
+            height={40}
+            className="object-contain"
+            loading="lazy"
           />
         </div>
 

@@ -3,8 +3,8 @@
 import React from "react";
 
 type LogoMarqueeProps = {
-  logos: React.ReactNode[];
-  speed?: number; // seconds
+  logos: string[]; // Tableau de chemins d'images
+  speed?: number; // secondes
 };
 
 const LogoMarquee: React.FC<LogoMarqueeProps> = ({ logos, speed = 20 }) => {
@@ -16,24 +16,38 @@ const LogoMarquee: React.FC<LogoMarqueeProps> = ({ logos, speed = 20 }) => {
       >
         {/* Premier groupe */}
         <div className="flex items-center justify-around min-w-full gap-8 px-4">
-          {logos.map((logo, i) => (
+          {logos.map((src, i) => (
             <div
               key={`logo1-${i}`}
-              className="flex-shrink-0 max-w-[120px] w-full"
+              className="flex-shrink-0 max-w-[120px] w-full flex justify-center"
             >
-              {logo}
+              <img
+                src={src}
+                alt={`Logo ${i + 1}`}
+                width={120}
+                height={40}
+                className="object-contain"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
 
         {/* Deuxième groupe (copie) */}
         <div className="flex items-center justify-around min-w-full gap-8 px-4">
-          {logos.map((logo, i) => (
+          {logos.map((src, i) => (
             <div
               key={`logo2-${i}`}
-              className="flex-shrink-0 max-w-[120px] w-full"
+              className="flex-shrink-0 max-w-[120px] w-full flex justify-center"
             >
-              {logo}
+              <img
+                src={src}
+                alt={`Logo ${i + 1}`}
+                width={120}
+                height={40}
+                className="object-contain"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
